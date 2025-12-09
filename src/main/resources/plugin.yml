@@ -1,7 +1,7 @@
 name: BetterSmithing
 version: '${project.version}'
 main: dev.baraus.bettersmithing.BetterSmithing
-api-version: '1.20'
+api-version: '1.17'
 authors: [ devbaraus ]
 prefix: BetterSmithing
 description: A plugin that upgrades Smithing Table
