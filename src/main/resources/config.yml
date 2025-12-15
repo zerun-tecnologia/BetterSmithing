@@ -14,8 +14,11 @@ tiers:
     upgrade_to: stone
     upgrade_item: stone
   stone:
-    upgrade_to: golden
-    upgrade_item: gold_ingot
+    upgrade_to: copper
+    upgrade_item: copper_ingot
+  copper:
+    upgrade_to: iron
+    upgrade_item: iron_ingot
   golden:
     upgrade_to: iron
     upgrade_item: iron_ingot

@@ -17,10 +17,14 @@ import java.util.logging.Level;
 
 public class BetterSmithing extends JavaPlugin {
 
-    private final List<String> toolTypes = Arrays.asList("SWORD", "SHOVEL", "PICKAXE", "AXE", "HOE", "HELMET", "CHESTPLATE", "LEGGINGS", "BOOTS");
+    private final List<String> toolTypes = Arrays.asList("SWORD", "SPEAR", "SHOVEL", "PICKAXE", "AXE", "HOE", "HELMET", "CHESTPLATE", "LEGGINGS", "BOOTS");
 
     private final Material[] leatherTools = Arrays.stream(Material.values()).filter(
             material -> material.name().startsWith("LEATHER_") && toolTypes.contains(material.name().replace("LEATHER_", ""))
+    ).toArray(Material[]::new);
+
+    private final Material[] copperTools = Arrays.stream(Material.values()).filter(
+            material -> material.name().startsWith("COPPER_") && toolTypes.contains(material.name().replace("COPPER_", ""))
     ).toArray(Material[]::new);
 
     private final Material[] woodenTools = Arrays.stream(Material.values()).filter(
@@ -89,6 +93,7 @@ public class BetterSmithing extends JavaPlugin {
         Map<String, Material[]> tiersMap = new HashMap<>();
         tiersMap.put("leather", leatherTools);
         tiersMap.put("wooden", woodenTools);
+        tiersMap.put("copper", copperTools);
         tiersMap.put("stone", stoneTools);
         tiersMap.put("iron", ironTools);
         tiersMap.put("golden", goldenTools);
