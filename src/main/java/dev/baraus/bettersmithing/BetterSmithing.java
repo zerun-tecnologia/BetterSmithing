@@ -103,6 +103,11 @@ public class BetterSmithing extends JavaPlugin {
             String tier = entry.getKey();
             Material[] tools = entry.getValue();
 
+            if (tools.length == 0) {
+                getLogger().warning("Tier '" + tier + "' has no compatible tools for this server version; skipping.");
+                continue;
+            }
+
             if (getConfig().contains("tiers." + tier)) {
                 String upgradeTo = getConfig().getString("tiers." + tier + ".upgrade_to");
                 String upgradeItem = getConfig().getString("tiers." + tier + ".upgrade_item");
@@ -111,11 +116,13 @@ public class BetterSmithing extends JavaPlugin {
                     Material[] upgradeToTools = tiersMap.get(upgradeTo);
                     Material additionMaterial = Material.matchMaterial(upgradeItem.toUpperCase());
 
-                    if (upgradeToTools != null && additionMaterial != null) {
+                    if (upgradeToTools != null && upgradeToTools.length > 0 && additionMaterial != null) {
                         addToolsRecipe(templateMaterial, tools, upgradeToTools, additionMaterial, tier.toUpperCase() + "_", upgradeTo.toUpperCase() + "_");
                     } else {
                         if (upgradeToTools == null) {
                             getLogger().warning("Unknown upgrade target tier '" + upgradeTo + "' in config; skipping tier '" + tier + "'.");
+                        } else if (upgradeToTools.length == 0) {
+                            getLogger().warning("Upgrade target tier '" + upgradeTo + "' has no compatible tools for this server version; skipping tier '" + tier + "'.");
                         }
                         if (additionMaterial == null) {
                             getLogger().warning("Unknown upgrade item '" + upgradeItem + "' in config; skipping tier '" + tier + "'.");
