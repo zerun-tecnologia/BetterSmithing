@@ -4,7 +4,7 @@
 # upgrade_item is the item that will be consumed when upgrading the item
 
 # See https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
-template: AIR
+template: COAL
 
 tiers:
   leather:

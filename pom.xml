@@ -6,7 +6,7 @@
 
     <groupId>dev.baraus</groupId>
     <artifactId>BetterSmithing</artifactId>
-    <version>1.6</version>
+    <version>2.0</version>
     <packaging>jar</packaging>
 
     <name>BetterSmithing</name>
